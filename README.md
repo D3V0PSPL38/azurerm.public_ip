@@ -56,9 +56,17 @@ No requirements.
 | <a name="input_stage"></a> [stage](#input\_stage) | ID element. Usually used to indicate role, e.g. 'prod', 'staging', 'source', 'build', 'test', 'deploy', 'release' | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Additional tags (e.g. `{'BusinessUnit': 'XYZ'}`).<br>Neither the tag keys nor the tag values will be modified by this module. | `map(string)` | `{}` | no |
 | <a name="input_tenant"></a> [tenant](#input\_tenant) | ID element \_(Rarely used, not included by default)\_. A customer identifier, indicating who this instance of a resource is for | `string` | `null` | no |
+| <a name="input_timeouts"></a> [timeouts](#input\_timeouts) | [Optional] The timeouts block allows you to specify timeouts for certain actions | <pre>object({<br>    create = optional(string)<br>    read   = optional(string)<br>    update = optional(string)<br>    delete = optional(string)<br>  })</pre> | <pre>{<br>  "create": "30m",<br>  "delete": "30m",<br>  "read": "30m",<br>  "update": "30m"<br>}</pre> | no |
 | <a name="input_zones"></a> [zones](#input\_zones) | [Optional] A collection containing the availability zone to allocate the Public IP in | `list(string)` | `[]` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_domain_name_label"></a> [domain\_name\_label](#output\_domain\_name\_label) | [Output] The label for the Domain Name. |
+| <a name="output_fqdn"></a> [fqdn](#output\_fqdn) | [Output] Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone. |
+| <a name="output_idle_timeout_in_minutes"></a> [idle\_timeout\_in\_minutes](#output\_idle\_timeout\_in\_minutes) | [Output] Specifies the timeout for the TCP idle connection. |
+| <a name="output_ip_address"></a> [ip\_address](#output\_ip\_address) | [Output] The IP address value that was allocated. |
+| <a name="output_ip_version"></a> [ip\_version](#output\_ip\_version) | [Output] The IP version being used, for example IPv4 or IPv6. |
+| <a name="output_public_ip_tags"></a> [public\_ip\_tags](#output\_public\_ip\_tags) | [Output] A mapping of tags to assigned to the resource. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

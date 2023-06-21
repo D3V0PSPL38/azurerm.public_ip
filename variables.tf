@@ -76,4 +76,22 @@ variable "zones" {
   type        = list(string)
   default     = []
 }
+
+variable "timeouts" {
+  description = <<EOD
+  [Optional] The timeouts block allows you to specify timeouts for certain actions
+  EOD
+  type = object({
+    create = optional(string)
+    read   = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
+  default = {
+    create = "30m"
+    read   = "30m"
+    update = "30m"
+    delete = "30m"
+  }
+}
 ### [END] variables.tf ###

@@ -26,6 +26,12 @@ resource "azurerm_public_ip" "this" {
   reverse_fqdn            = var.reverse_fqdn
   public_ip_prefix_id     = var.public_ip_prefix_id
   zones                   = var.zones
-  tags                    = module.label.tags
+  timeouts {
+    read   = var.timeouts.read
+    create = var.timeouts.create
+    update = var.timeouts.update
+    delete = var.timeouts.delete
+  }
+  tags = module.label.tags
 }
 ### [END] main.tf ###
